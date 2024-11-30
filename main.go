@@ -68,6 +68,12 @@ func (dll *DLL) ReadAll() {
 	}
 }
 
+func (dll *DLL) ReadBack() {
+	for current := dll.last; current != nil; current = current.left {
+		fmt.Println(current.value)
+	}
+}
+
 func main() {
 	f := new(DLL)
 
@@ -85,7 +91,10 @@ func main() {
 		}
 	}
 
-	f.Remove()
+	for range 95 {
+		f.Remove()
+	}
 
 	f.ReadAll()
+	f.ReadBack()
 }
